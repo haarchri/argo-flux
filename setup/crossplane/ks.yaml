@@ -23,11 +23,27 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: crossplane-provider-aws
+  name: crossplane-provider
   namespace: crossplane-system
 spec:
   timeout: 2m
-  path: "./crossplane-provider-aws/"
+  path: "./crossplane-provider/"
+  interval: 5m
+  prune: true
+  force: false
+  sourceRef:
+    kind: GitRepository
+    name: argo-flux-demo
+    namespace: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: platform-ref-aws
+  namespace: crossplane-system
+spec:
+  timeout: 2m
+  path: "./platform-ref-aws/"
   interval: 5m
   prune: true
   force: false
