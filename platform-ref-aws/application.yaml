@@ -6,6 +6,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
+    namespace: crossplane-system
     server: https://kubernetes.default.svc
   project: default
   source:
