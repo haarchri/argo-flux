@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: crossplane
+  namespace: argocd
+spec:
+  destination:
+    namespace: crossplane-system
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: ./
+    repoURL: flux://loopback
+    targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - ApplyOutOfSyncOnly=true
