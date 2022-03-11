@@ -18,7 +18,7 @@ spec:
   controllerConfigRef:
     name: crossplane-aws
   ignoreCrossplaneConstraints: false
-  package: crossplane/provider-aws:v0.24.1
+  package: crossplane/provider-aws:v0.25.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   revisionHistoryLimit: 1
